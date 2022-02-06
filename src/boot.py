@@ -1,0 +1,20 @@
+"""
+boot.py
+
+This file is executed before the USB connection is setup so we can alter what
+USB devices are created.
+"""
+import usb_cdc
+import storage
+
+# Make USB mount read-only (to host), this can only be done in boot.py
+storage.remount('/', readonly=False)
+
+# Set the name the mass storage appears as,
+# this can only be done while the storage is writable to the microcontroller
+m = storage.getmount("/")
+if m.label == 'CIRCUITPY':
+    m.label = "SR_COMP_USB"
+
+# Disable serial console
+usb_cdc.disable()
