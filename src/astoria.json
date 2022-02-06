@@ -1,0 +1,8 @@
+{
+    "arena": "A",
+    "zone": 2,
+    "mode": "COMP",
+    "game_timeout": 120,
+    "marker_offset": 100,
+    "wifi_enabled": false
+}

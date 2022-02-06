@@ -2,13 +2,13 @@ import time
 import board
 import neopixel
 
+import json
+
 # Orange is modified here to make it more distinct from yellow
 corners = [0x00ff00, 0xff3300, 0xff00ff, 0xffff00]
 
 PIXELS = neopixel.NeoPixel(board.NEOPIXEL, 4)
 PIXELS.brightness = 0.02  # The LEDs are very bright
-
-ZONE = 1
 
 
 def set_corner(corner, arena=None):
@@ -33,8 +33,24 @@ def heartbeat(led):
         time.sleep(0.05)
 
 
+def get_zone_from_file(filename):
+    "Read the zone and arena from a metadata file, all LEDs are held blue if an error occurs"
+    try:
+        with open(filename) as fp:
+            config = fp.read()
+            data = json.loads(config)
+
+        return data['zone'], data['arena']
+    except (OSError, ValueError, IndexError) as e:
+        print(e)
+        # All LEDs are set blue if the mode file is invalid
+        PIXELS.fill(0x0000FF)
+        while True:
+            time.sleep(1)
+
+
 # LEDs set to corner colour
-set_corner(ZONE)
+set_corner(*get_zone_from_file('astoria.json'))
 
 while True:
     heartbeat(0)
