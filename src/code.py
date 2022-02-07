@@ -50,7 +50,8 @@ def get_zone_from_file(filename):
 
 
 # LEDs set to corner colour
-set_corner(*get_zone_from_file('astoria.json'))
+zone, arena = get_zone_from_file('astoria.json')
+set_corner(zone, arena)
 
 while True:
     heartbeat(0)
