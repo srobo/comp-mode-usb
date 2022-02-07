@@ -49,3 +49,17 @@ In both these cases you should check the  `astoria.json` file, remembering __to 
 Devices running CircuitPython with less than 2MB of flash do not have the built-in JSON library included.
 The only way to include Adafruit's JSON library would be to compile a custom CircuitPython bootloader.
 Since we are not concerned about the speed of JSON parsing we include our own limited JSON library, written in Python.
+
+## Viewing Corner Colours
+An alternative program is provided in the `demo/` directory to view all 4 corner colours at once.
+Load this the same way as the regular code above.
+
+## Debugging errors
+Since we've disabled the serial terminal you cannot normally view what error is causing the Trinkey to crash.
+A workaround for this is to boot into safe mode, which will re-enable the serial terminal.
+
+Once you connect to the serial terminal, press a key to enter the REPL and enter `import code`.
+This will run the standard code and allow you to view the error.
+
+Note, generally the import command will not return so use Ctrl-C to be ale to enter more commands.
+
