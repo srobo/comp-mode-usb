@@ -8,7 +8,7 @@ The Neo Trinkey does not come with the CircuitPython bootloader installed.
 To install the bootloader, plug the Trinkey and double press the reset button.
 All 4 LEDs should now be green and a TRINKEYBOOT drive should be visible, if they are red there is a problem with the USB connection.
 Download the CircuitPython bootloader from the [circuitpython website](https://circuitpython.org/board/neopixel_trinkey_m0/) and drag the uf2 file onto the TRINKEYBOOT drive.
-The Neo Trinkey will then reboot and a CiRCUITPY drive will appear.
+The Neo Trinkey will then reboot and a CIRCUITPY drive will appear.
 
 Now the bootloader is installed copy the contents of the `src/` folder into CiRCUITPY.
 Once the Trinkey reboots there will be a SR_COMP_USB drive.
