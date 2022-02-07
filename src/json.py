@@ -1,6 +1,8 @@
 """json.py
 A fairly small pure python json parser for use on circuitpython boards that
 don't include the C-based json library.
+
+Written by Will Barber
 """
 import gc
 
