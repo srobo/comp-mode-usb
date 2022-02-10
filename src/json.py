@@ -223,7 +223,7 @@ def _dump_string(data):
             elif c == '\t':
                 output += '\\t'
 
-            start = idx +1
+            start = idx + 1
 
-    output += data[start:idx+1]
+    output += data[start:idx + 1]
     return '"' + output + '"'
