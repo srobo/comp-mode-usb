@@ -1,4 +1,6 @@
+"""Demo code to show the LEDs working."""
 import time
+
 import board
 import neopixel
 
