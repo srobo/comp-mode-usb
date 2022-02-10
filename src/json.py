@@ -159,7 +159,7 @@ def _parse_number(data, start):
 
 
 def dumps(data):
-    """convert a dict to a JSON string."""
+    """Convert a dict to a JSON string."""
     if not isinstance(data, dict):
         raise ValueError("The outer container must be a dict")
     gc.collect()  # do some garbage collection
