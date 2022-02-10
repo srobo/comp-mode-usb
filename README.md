@@ -63,19 +63,32 @@ This will run the standard code and allow you to view the error.
 
 Note, generally the import command will not return so use Ctrl-C to be ale to enter more commands.
 
-## Development Dependencies
+## Development
+
+### Dev Dependencies
 
 Some development dependencies are used in CI for linting the code. These are defined in `requirements-dev.in` and are managed using [pip-tools](https://github.com/jazzband/pip-tools).
 
 You can install the development dependencies using pip:
 
 ```bash
+./scripts/setup.sh
+```
+
+or manually:
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements-dev.txt
+```
 
 If you need to update all of the dependencies in the lockfile, you can use `pip-compile`:
 
 ```bash
 pip-compile requirements-dev.in
 ```
+
+### Tests
+
+You can run the tests and linting by executing `./scripts/test.sh`
