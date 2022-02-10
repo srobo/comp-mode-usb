@@ -57,7 +57,11 @@ def _skip_whitespace(data, idx):
 
 
 def _parse_value(data, start):
-    """Parse a JSON value, returns any of the following parsers and the index beyond the last character."""
+    """
+    Parse a JSON value.
+
+    :returns: any of the following parsers and the index beyond the last character.
+    """
     init_idx = _skip_whitespace(data, start)
 
     if data[init_idx] == '{':
@@ -71,7 +75,12 @@ def _parse_value(data, start):
     elif data[init_idx] in '-0123456789':
         value, idx = _parse_number(data, init_idx)
     else:
-        raise ValueError("Invalid value starting character: '{}', index: {}".format(data[init_idx], init_idx))
+        raise ValueError(
+            "Invalid value starting character: '{}', index: {}".format(
+                data[init_idx],
+                init_idx,
+            ),
+        )
 
     idx = _skip_whitespace(data, idx)
     return value, idx
@@ -100,7 +109,11 @@ def _parse_array(data, start):
 
 
 def _parse_bool(data, start):
-    """Parse JSON bool/null, returns a bool or None and the index beyond the last character."""
+    """
+    Parse JSON bool/null.
+
+    :returns: a bool or None and the index beyond the last character.
+    """
     if data[start:start + 4] == 'true':
         return True, start + 4
     elif data[start:start + 5] == 'false':
@@ -143,7 +156,11 @@ def _parse_string(data, start):
 
 
 def _parse_number(data, start):
-    """Parse JSON number, returns an int or float and the index beyond the last character."""
+    """
+    Parse JSON number.
+
+    :returns: an int or float and the index beyond the last character.
+    """
     idx = start
     is_float = False
     # Use loose validation since we're using int()/float()

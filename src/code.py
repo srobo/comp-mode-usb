@@ -35,7 +35,11 @@ def heartbeat(led):
 
 
 def get_zone_from_file(filename):
-    """Read the zone and arena from a metadata file, all LEDs are held blue if an error occurs."""
+    """
+    Read the zone and arena from a metadata file.
+
+    All LEDs are held blue if an error occurs.
+    """
     try:
         with open(filename) as fp:
             config = fp.read()
