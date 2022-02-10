@@ -12,7 +12,7 @@ PIXELS.brightness = 0.02  # The LEDs are very bright
 
 
 def set_corner(corner, arena=None):
-    "Set LEDs 1/2 to the corner's colour, the LED set depends on the arena"
+    """Set LEDs 1/2 to the corner's colour, the LED set depends on the arena"""
     if arena == 'A':
         PIXELS[1] = corners[corner]
     elif arena == 'B':
@@ -23,7 +23,7 @@ def set_corner(corner, arena=None):
 
 
 def heartbeat(led):
-    "Fade up and back down, this takes 1 second"
+    """Fade up and back down, this takes 1 second"""
     for i in range(50, 255, 25):
         PIXELS[led] = (0, 0, i)
         time.sleep(0.05)
@@ -34,7 +34,7 @@ def heartbeat(led):
 
 
 def get_zone_from_file(filename):
-    "Read the zone and arena from a metadata file, all LEDs are held blue if an error occurs"
+    """Read the zone and arena from a metadata file, all LEDs are held blue if an error occurs"""
     try:
         with open(filename) as fp:
             config = fp.read()
