@@ -1,3 +1,4 @@
+"""code.py - Entrypoint for main CircuitPython routine."""
 import json
 import time
 

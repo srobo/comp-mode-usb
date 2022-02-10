@@ -10,6 +10,7 @@ import gc
 
 
 def loads(s):
+    """Load an object from a JSON string."""
     if s[0] != '{':
         raise ValueError("Invalid JSON object")
     try:
