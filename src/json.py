@@ -1,4 +1,6 @@
-"""json.py
+"""
+json.py - A JSON parser.
+
 A fairly small pure python json parser for use on circuitpython boards that
 don't include the C-based json library.
 
@@ -17,7 +19,7 @@ def loads(s):
 
 
 def _parse_object(data, start):
-    """Parse JSON object {}, returns a dict and the index beyond the last character"""
+    """Parse JSON object {}, returns a dict and the index beyond the last character."""
     idx = _skip_whitespace(data, start)
     obj = {}
     if data[idx] == '}':
@@ -47,14 +49,14 @@ def _parse_object(data, start):
 
 
 def _skip_whitespace(data, idx):
-    """Return the next index with a non-whitespace character"""
+    """Return the next index with a non-whitespace character."""
     while data[idx].isspace():
         idx += 1
     return idx
 
 
 def _parse_value(data, start):
-    """Parse a JSON value, returns any of the following parsers and the index beyond the last character"""
+    """Parse a JSON value, returns any of the following parsers and the index beyond the last character."""
     init_idx = _skip_whitespace(data, start)
 
     if data[init_idx] == '{':
@@ -75,7 +77,7 @@ def _parse_value(data, start):
 
 
 def _parse_array(data, start):
-    """Parse JSON object [], returns a list and the index beyond the last character"""
+    """Parse JSON object [], returns a list and the index beyond the last character."""
     idx = _skip_whitespace(data, start)
     obj = []
     if data[idx] == ']':
@@ -97,7 +99,7 @@ def _parse_array(data, start):
 
 
 def _parse_bool(data, start):
-    """Parse JSON bool/null, returns a bool or None and the index beyond the last character"""
+    """Parse JSON bool/null, returns a bool or None and the index beyond the last character."""
     if data[start:start + 4] == 'true':
         return True, start + 4
     elif data[start:start + 5] == 'false':
@@ -108,7 +110,7 @@ def _parse_bool(data, start):
 
 
 def _parse_string(data, start):
-    """Parse JSON string, returns a string and the index beyond the last character"""
+    """Parse JSON string, returns a string and the index beyond the last character."""
     idx = start
     value = ''
     while not data[idx] == '"':
@@ -140,7 +142,7 @@ def _parse_string(data, start):
 
 
 def _parse_number(data, start):
-    """Parse JSON number, returns an int or float and the index beyond the last character"""
+    """Parse JSON number, returns an int or float and the index beyond the last character."""
     idx = start
     is_float = False
     # Use loose validation since we're using int()/float()
@@ -156,7 +158,7 @@ def _parse_number(data, start):
 
 
 def dumps(data):
-    """convert a dict to a JSON string"""
+    """convert a dict to a JSON string."""
     if not isinstance(data, dict):
         raise ValueError("The outer container must be a dict")
     gc.collect()  # do some garbage collection

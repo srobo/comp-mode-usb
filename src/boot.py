@@ -1,5 +1,5 @@
 """
-boot.py
+boot.py - CircuitPython boot entrypoint.
 
 This file is executed before the USB connection is setup so we can alter what
 USB devices are created.
