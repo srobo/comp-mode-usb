@@ -4,8 +4,8 @@ boot.py
 This file is executed before the USB connection is setup so we can alter what
 USB devices are created.
 """
-import usb_cdc
 import storage
+import usb_cdc
 
 # Make USB mount read-only (to host), this can only be done in boot.py
 storage.remount('/', readonly=False)  # readonly here applies to MCU not host

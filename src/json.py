@@ -6,6 +6,7 @@ Written by Will Barber
 """
 import gc
 
+
 def loads(s):
 	if s[0] != '{':
 		raise ValueError("Invalid JSON object")

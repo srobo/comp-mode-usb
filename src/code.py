@@ -1,8 +1,8 @@
+import json
 import time
+
 import board
 import neopixel
-
-import json
 
 # Orange is modified here to make it more distinct from yellow
 corners = [0x00ff00, 0xff3300, 0xff00ff, 0xffff00]
